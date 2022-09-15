@@ -13,18 +13,18 @@ public class Data {
     }
 
     public ArrayList<Restaurant> makeRestaurantList(){
-        restaurantList.add(new Restaurant("001", "Feast Lounge", R.drawable.r01, "508 Cranford Rd \nSmithfield, Virginia."));
-        restaurantList.add(new Restaurant("002", "Cuisine Wave", R.drawable.r02, "3853 N Mill Rd \nDryden, Michigan."));
-        restaurantList.add(new Restaurant("003", "Eatery Hotspot", R.drawable.r03, "4 Birchwood Cir \nClinton, Connecticut."));
-        restaurantList.add(new Restaurant("004", "McBistro", R.drawable.r04, "6155 9th Hwy \nSilverthorne, Colorado."));
-        restaurantList.add(new Restaurant("005", "Deli Divine", R.drawable.r05, "28 Acorn Rd \nDennis, Massachusetts."));
-        restaurantList.add(new Restaurant("006", "Grub Chef", R.drawable.r06, "612 Gardner St \nSouth Beloit, Illinois."));
-        restaurantList.add(new Restaurant("007", "Kitchen Sensation", R.drawable.r07, "2379 Upper Trent Way \nVandalia, Ohio."));
-        restaurantList.add(new Restaurant("008", "Munchies", R.drawable.r08, "497 Ridge Rd \nBowdoinham, Maine."));
-        restaurantList.add(new Restaurant("009", "Freddy’s Stove", R.drawable.r09, "13603 SE Jamie Ct \nClackamas, Oregon."));
-        restaurantList.add(new Restaurant("010", "Paterro’s Kitchen", R.drawable.r10, "25377 Virginia Smith Dr \nCalcium, New York."));
-        restaurantList.add(new Restaurant("011", "Flavoroso", R.drawable.r11, "33379 43rd Hwy \nIndependence, Louisiana."));
-        restaurantList.add(new Restaurant("012", "Pies n’ Thighs", R.drawable.r12, "Po Box 476 \nLos Alamos, California."));
+        restaurantList.add(new Restaurant("001", "Feast Lounge", R.drawable.re01, "508 Cranford Rd \nSmithfield, Virginia."));
+        restaurantList.add(new Restaurant("002", "Cuisine Wave", R.drawable.re02, "3853 N Mill Rd \nDryden, Michigan."));
+        restaurantList.add(new Restaurant("003", "Eatery Hotspot", R.drawable.re03, "4 Birchwood Cir \nClinton, Connecticut."));
+        restaurantList.add(new Restaurant("004", "McBistro", R.drawable.re04, "6155 9th Hwy \nSilverthorne, Colorado."));
+        restaurantList.add(new Restaurant("005", "Deli Divine", R.drawable.re05, "28 Acorn Rd \nDennis, Massachusetts."));
+        restaurantList.add(new Restaurant("006", "Grub Chef", R.drawable.re06, "612 Gardner St \nSouth Beloit, Illinois."));
+        restaurantList.add(new Restaurant("007", "Kitchen Sensation", R.drawable.re07, "2379 Upper Trent Way \nVandalia, Ohio."));
+        restaurantList.add(new Restaurant("008", "Munchies", R.drawable.re08, "497 Ridge Rd \nBowdoinham, Maine."));
+        restaurantList.add(new Restaurant("009", "Freddy’s Stove", R.drawable.re09, "13603 SE Jamie Ct \nClackamas, Oregon."));
+        restaurantList.add(new Restaurant("010", "Paterro’s Kitchen", R.drawable.re10, "25377 Virginia Smith Dr \nCalcium, New York."));
+        restaurantList.add(new Restaurant("011", "Flavoroso", R.drawable.re11, "33379 43rd Hwy \nIndependence, Louisiana."));
+        restaurantList.add(new Restaurant("012", "Pies n’ Thighs", R.drawable.re12, "Po Box 476 \nLos Alamos, California."));
         return restaurantList;
     }
 
