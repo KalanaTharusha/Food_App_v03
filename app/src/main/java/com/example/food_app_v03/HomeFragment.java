@@ -80,7 +80,6 @@ public class HomeFragment extends Fragment implements ItemClick {
 //        dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 
         d_foodName = dialog.findViewById(R.id.dialog_name);
-        d_amountLabel = dialog.findViewById(R.id.dialog_amount);
         d_plus = dialog.findViewById(R.id.dialog_add_btn);
         d_minus = dialog.findViewById(R.id.dialog_minus_btn);
         d_addToCart = dialog.findViewById(R.id.dialog_add_to_cart_btn);
@@ -95,7 +94,7 @@ public class HomeFragment extends Fragment implements ItemClick {
             @Override
             public void onClick(View view) {
                 amount++;
-                d_amountLabel.setText(String.valueOf(amount));
+                d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
                 d_price.setText(String.valueOf(Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
             }
         });
@@ -105,7 +104,7 @@ public class HomeFragment extends Fragment implements ItemClick {
             public void onClick(View view) {
                 if (amount > 1) {
                     amount--;
-                    d_amountLabel.setText(String.valueOf(amount));
+                    d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
                     d_price.setText(String.valueOf(Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
                 }
             }

@@ -29,13 +29,18 @@ public class Data {
     }
 
     public ArrayList<Food> makeFoodList(){
-        foodList.add(new Food("12","This is Food Name", "12.00", "Hello", "001", R.drawable.ic_restaurant));
-        foodList.add(new Food("13","This is Food Name", "14.00", "Hello", "001", R.drawable.ic_restaurant));
-        foodList.add(new Food("14","This is Food Name", "13.00", "Hello", "007", R.drawable.ic_restaurant));
-        foodList.add(new Food("15","This is Food Name", "22.00", "Hello", "005", R.drawable.ic_restaurant));
-        foodList.add(new Food("23","This is Food Name", "54.00", "Hello", "003", R.drawable.ic_restaurant));
-        foodList.add(new Food("44","This is Food Name", "33.00", "Hello", "003", R.drawable.ic_restaurant));
-        foodList.add(new Food("55","This is Food Name", "62.00", "Hello", "002", R.drawable.ic_restaurant));
+        foodList.add(new Food("12","Food 1", "12.00", "Hello", "001", R.drawable.fs1));
+        foodList.add(new Food("13","Food 2", "14.00", "Hello", "001", R.drawable.fs1));
+        foodList.add(new Food("14","Food 3", "13.00", "Hello", "007", R.drawable.fs1));
+        foodList.add(new Food("15","Food 4", "22.00", "Hello", "005", R.drawable.fs1));
+        foodList.add(new Food("23","Food 5", "54.00", "Hello", "003", R.drawable.fs1));
+        foodList.add(new Food("44","Food 6", "33.00", "Hello", "003", R.drawable.fs1));
+        foodList.add(new Food("55","Food 8", "62.00", "Hello", "002", R.drawable.fs1));
+        foodList.add(new Food("14","Food 9", "13.00", "Hello", "007", R.drawable.fs1));
+        foodList.add(new Food("15","Food 10", "22.00", "Hello", "005", R.drawable.fs1));
+        foodList.add(new Food("23","Food 11", "54.00", "Hello", "003", R.drawable.fs1));
+        foodList.add(new Food("44","Food 12", "33.00", "Hello", "003", R.drawable.fs1));
+        foodList.add(new Food("55","Food 10", "62.00", "Hello", "002", R.drawable.fs1));
         return foodList;
     }
 }

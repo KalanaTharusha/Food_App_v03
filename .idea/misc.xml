@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/drawable/dialog_background.xml" value="0.2235" />
+        <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/drawable/rectangle_btn.xml" value="0.2535" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/activity_food.xml" value="0.2056159420289855" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/activity_main.xml" value="0.2056159420289855" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/activity_register.xml" value="0.2056159420289855" />
-        <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/add2cart_dialog.xml" value="0.2056159420289855" />
+        <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/add2cart_dialog.xml" value="0.20878623188405798" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/cart_item.xml" value="0.2056159420289855" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/food_item.xml" value="0.2056159420289855" />
         <entry key="..\:/Curtin/COMP2008/Assignment_1/Food_App_v03/app/src/main/res/layout/fragment_cart.xml" value="0.2056159420289855" />
