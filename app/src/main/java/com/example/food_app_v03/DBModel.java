@@ -28,6 +28,8 @@ public class DBModel {
         ContentValues cv = new ContentValues();
         cv.put(UserTable.Cols.NAME, user.getU_name());
         cv.put(UserTable.Cols.EMAIL, user.getU_email());
+        cv.put(UserTable.Cols.ADDRESS, user.getU_address());
+        cv.put(UserTable.Cols.PHONE, user.getU_phone());
         cv.put(UserTable.Cols.PASSWORD, user.getU_password());
         db.insert(UserTable.TABLENAME, null, cv);
     }

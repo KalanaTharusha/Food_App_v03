@@ -69,6 +69,10 @@ public class HomeFragment extends Fragment implements ItemClick {
 
     @Override
     public void clickedItem(int position) {
+        addItemFromHome(position);
+    }
+
+    public void addItemFromHome(int position){
         TextView d_foodName, d_price, d_amountLabel;
         Button d_plus, d_minus, d_addToCart;
         ImageView d_foodItemIV;
@@ -123,7 +127,6 @@ public class HomeFragment extends Fragment implements ItemClick {
         });
 
         dialog.show();
-
     }
 
     public int getRandomValue(int range) {

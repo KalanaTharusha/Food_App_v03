@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.food_app_v03.databinding.FragmentSignInBinding;
 
@@ -51,7 +52,7 @@ public class SignInFragment extends Fragment {
                     fragmentTransaction.replace(R.id.mainFragCont, new DashboardFragment()).commit();
 
                 } else {
-                    System.out.println("User cannot recognized!");
+                    Toast.makeText(getContext(), "Invalid Credentials!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

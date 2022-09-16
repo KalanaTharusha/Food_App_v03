@@ -3,11 +3,15 @@ package com.example.food_app_v03;
 public class User {
     String u_name;
     String u_email;
+    String u_address;
+    String u_phone;
     String u_password;
 
-    public User(String u_name, String u_email, String u_password) {
+    public User(String u_name, String u_email, String u_address, String u_phone, String u_password) {
         this.u_name = u_name;
         this.u_email = u_email;
+        this.u_address = u_address;
+        this.u_phone = u_phone;
         this.u_password = u_password;
     }
 
@@ -33,5 +37,21 @@ public class User {
 
     public void setU_password(String u_password) {
         this.u_password = u_password;
+    }
+
+    public String getU_address() {
+        return u_address;
+    }
+
+    public void setU_address(String u_address) {
+        this.u_address = u_address;
+    }
+
+    public String getU_phone() {
+        return u_phone;
+    }
+
+    public void setU_phone(String u_phone) {
+        this.u_phone = u_phone;
     }
 }

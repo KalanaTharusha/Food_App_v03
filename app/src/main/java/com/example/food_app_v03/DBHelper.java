@@ -21,6 +21,8 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table " + UserTable.TABLENAME +
                 "(" + UserTable.Cols.EMAIL + " Text PRIMARY KEY, " +
                 UserTable.Cols.NAME + " Text, " +
+                UserTable.Cols.ADDRESS + " Text, " +
+                UserTable.Cols.PHONE + " Text, " +
                 UserTable.Cols.PASSWORD + " Text);");
 
         sqLiteDatabase.execSQL("create table " +

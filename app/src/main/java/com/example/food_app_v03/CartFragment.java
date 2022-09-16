@@ -1,9 +1,11 @@
 package com.example.food_app_v03;
 
+import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,12 +51,15 @@ public class CartFragment extends Fragment {
                 DBModel dbModel = new DBModel();
                 dbModel.load(view.getContext());
                 if (MainActivity.loggedUser != null) {
-                    dbModel.addOrderList(MainActivity.loggedUser.u_email);
-                    Toast.makeText(getContext(), "Payment Successful", Toast.LENGTH_SHORT).show();
-                    MainActivity.orderList.removeAll(MainActivity.orderList);
-                    getTotalCO();
-                    adapter.notifyDataSetChanged();
-
+                    if (!MainActivity.orderList.isEmpty()) {
+                        dbModel.addOrderList(MainActivity.loggedUser.u_email);
+                        paymentConfirm();
+                        MainActivity.orderList.removeAll(MainActivity.orderList);
+                        getTotalCO();
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        Toast.makeText(getContext(), "No items", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(getContext(), "Log in first", Toast.LENGTH_SHORT).show();
                 }
@@ -65,11 +70,20 @@ public class CartFragment extends Fragment {
     }
 
 
-    public static void getTotalCO(){
+    public static void getTotalCO() {
         double co_total = 0;
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
             co_total = co_total + MainActivity.orderList.get(i).getTotalPrice();
         }
         totalPrice.setText(String.valueOf(co_total));
     }
+
+    public void paymentConfirm() {
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.paymentconf_dialog);
+        dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background));
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+    }
+
 }

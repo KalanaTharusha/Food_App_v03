@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 public class FoodItemFragment extends Fragment {
     View view;
-    TextView foodName, price, amountLabel;
-    Button plus, minus, addToCart;
+    TextView foodName, restaurantName, amountLabel, plus, minus;
+    Button addToCart;
     ImageView foodItemIV;
     Food newFood;
     int amount = 1;
@@ -31,20 +31,24 @@ public class FoodItemFragment extends Fragment {
         plus = view.findViewById(R.id.add_btn);
         minus = view.findViewById(R.id.minus_btn);
         addToCart = view.findViewById(R.id.add_to_cart_btn);
-        price = view.findViewById(R.id.food_price2);
         foodItemIV = view.findViewById(R.id.food_image2);
+        restaurantName = view.findViewById(R.id.res_name2);
+
+        DBModel dbModel = new DBModel();
+        dbModel.load(getContext());
 
         newFood = FoodItemFragmentArgs.fromBundle(getArguments()).getFood();
         foodName.setText(newFood.getFood_name());
-        price.setText(String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+        restaurantName.setText(dbModel.getRestaurantByID(newFood.getRe_id()).getR_name());
         foodItemIV.setImageResource(newFood.food_imagePath);
+        addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 amount++;
                 amountLabel.setText(String.valueOf(amount));
-                price.setText(String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+                addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
             }
         });
 
@@ -54,7 +58,7 @@ public class FoodItemFragment extends Fragment {
                 if (amount > 1) {
                     amount--;
                     amountLabel.setText(String.valueOf(amount));
-                    price.setText(String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+                    addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
                 }
             }
         });

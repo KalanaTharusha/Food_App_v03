@@ -15,8 +15,10 @@ public class DBCursor extends CursorWrapper {
     public User getUser(){
         String name = getString(getColumnIndex(UserTable.Cols.NAME));
         String email = getString(getColumnIndex(UserTable.Cols.EMAIL));
+        String address = getString(getColumnIndex(UserTable.Cols.ADDRESS));
+        String phone = getString(getColumnIndex(UserTable.Cols.PHONE));
         String password = getString(getColumnIndex(UserTable.Cols.PASSWORD));
-        return new User(name, email, password);
+        return new User(name, email, address, phone, password);
     }
 
     public Restaurant getRestaurant(){
