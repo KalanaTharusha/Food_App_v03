@@ -17,6 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -24,6 +28,7 @@ public class HomeFragment extends Fragment implements ItemClick {
     ArrayList<Food> homeFoodList;
     ArrayList<Food> randomFoodList;
     TextView welcomeMsg;
+    ImageSlider imageSlider;
     View view;
     int amount = 1;
 
@@ -64,6 +69,17 @@ public class HomeFragment extends Fragment implements ItemClick {
             welcomeMsg.setText("Hello");
         }
 
+        imageSlider = view.findViewById(R.id.imageSlider);
+
+        ArrayList<SlideModel> slideImages = new ArrayList<>();
+        slideImages.add(new SlideModel(R.drawable.re02, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.re03, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.re04, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.re05, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.re06, ScaleTypes.CENTER_CROP));
+
+        imageSlider.setImageList(slideImages, ScaleTypes.CENTER_CROP);
+
         return view;
     }
 
@@ -91,7 +107,7 @@ public class HomeFragment extends Fragment implements ItemClick {
         d_foodItemIV = dialog.findViewById(R.id.dialog_iv);
 
         d_foodName.setText(randomFoodList.get(position).getFood_name());
-        d_price.setText(String.valueOf(Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
+        d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
         d_foodItemIV.setImageResource(randomFoodList.get(position).food_imagePath);
 
         d_plus.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +115,7 @@ public class HomeFragment extends Fragment implements ItemClick {
             public void onClick(View view) {
                 amount++;
                 d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
-                d_price.setText(String.valueOf(Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
+                d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
             }
         });
 
@@ -109,7 +125,7 @@ public class HomeFragment extends Fragment implements ItemClick {
                 if (amount > 1) {
                     amount--;
                     d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
-                    d_price.setText(String.valueOf(Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
+                    d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
                 }
             }
         });
@@ -117,7 +133,7 @@ public class HomeFragment extends Fragment implements ItemClick {
         d_addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.orderList.add(new Order(randomFoodList.get(position).food_name, randomFoodList.get(position).re_id,
+                MainActivity.orderList.add(new Order(randomFoodList.get(position).food_id, randomFoodList.get(position).re_id,
                         Double.parseDouble(randomFoodList.get(position).food_price), amount,
                         Double.parseDouble(randomFoodList.get(position).food_price) * amount));
                 amount = 1;

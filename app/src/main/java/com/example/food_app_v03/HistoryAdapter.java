@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryVH> {
 
     ArrayList<History> histories;
+    DBModel dbModel = new DBModel();
 
     public HistoryAdapter(ArrayList<History> histories) {
         this.histories = histories;
@@ -31,6 +32,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             unitPrice = itemView.findViewById(R.id.h_unitPrice);
             amount = itemView.findViewById(R.id.h_amount);
             totalPrice = itemView.findViewById(R.id.h_total);
+            dbModel.load(itemView.getContext());
         }
     }
 
@@ -48,7 +50,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         holder.date.setText(histories.get(position).date);
         holder.orderID.setText(histories.get(position).orderID);
         holder.itemName.setText(histories.get(position).item);
-        holder.restaurant.setText(histories.get(position).restaurant);
+        holder.restaurant.setText(dbModel.getRestaurantByID(histories.get(position).restaurant).getR_name());
         holder.unitPrice.setText(histories.get(position).unitPrice);
         holder.amount.setText(histories.get(position).amount);
         holder.totalPrice.setText(histories.get(position).totalPrice);

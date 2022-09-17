@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class FoodItemFragment extends Fragment {
     View view;
-    TextView foodName, restaurantName, amountLabel, plus, minus;
+    TextView foodName, restaurantName, amountLabel, description, plus, minus;
     Button addToCart;
     ImageView foodItemIV;
     Food newFood;
@@ -33,22 +33,24 @@ public class FoodItemFragment extends Fragment {
         addToCart = view.findViewById(R.id.add_to_cart_btn);
         foodItemIV = view.findViewById(R.id.food_image2);
         restaurantName = view.findViewById(R.id.res_name2);
+        description = view.findViewById(R.id.f_desc);
 
         DBModel dbModel = new DBModel();
         dbModel.load(getContext());
 
         newFood = FoodItemFragmentArgs.fromBundle(getArguments()).getFood();
         foodName.setText(newFood.getFood_name());
+        description.setText(newFood.getFood_description());
         restaurantName.setText(dbModel.getRestaurantByID(newFood.getRe_id()).getR_name());
         foodItemIV.setImageResource(newFood.food_imagePath);
-        addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+        addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 amount++;
                 amountLabel.setText(String.valueOf(amount));
-                addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+                addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
             }
         });
 
@@ -58,7 +60,7 @@ public class FoodItemFragment extends Fragment {
                 if (amount > 1) {
                     amount--;
                     amountLabel.setText(String.valueOf(amount));
-                    addToCart.setText("ADD TO CART\nLKR " + String.valueOf(Double.parseDouble(newFood.getFood_price()) * amount));
+                    addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
                 }
             }
         });
@@ -66,7 +68,7 @@ public class FoodItemFragment extends Fragment {
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.orderList.add(new Order(newFood.food_name, newFood.re_id, Double.parseDouble(newFood.food_price), amount, Double.parseDouble(newFood.food_price) * amount));
+                MainActivity.orderList.add(new Order(newFood.food_id, newFood.re_id, Double.parseDouble(newFood.food_price), amount, Double.parseDouble(newFood.food_price) * amount));
 
                 amount = 1;
 

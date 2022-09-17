@@ -29,7 +29,7 @@ public class Data {
     }
 
     public ArrayList<Food> makeFoodList(){
-        foodList.add(new Food("12","Food 1", "12.00", "Hello", "001", R.drawable.fs1));
+        foodList.add(new Food("12","Food 1", "12.00", "This fermented spaghetti squash dish is fairly creamy with a flaky texture. It has subtle hints of papaya with calendula and has california bay. It smells odor-free with an overwhelming amount of new zealand spinach. It is agreeable and appetizing. You can really feel how high in riboflavin and how sustainably sourced it is.", "001", R.drawable.fs1));
         foodList.add(new Food("13","Food 2", "14.00", "Hello", "001", R.drawable.fs1));
         foodList.add(new Food("14","Food 3", "13.00", "Hello", "007", R.drawable.fs1));
         foodList.add(new Food("15","Food 4", "22.00", "Hello", "005", R.drawable.fs1));

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
 
     ArrayList<Order> orders;
+    DBModel dbModel = new DBModel();
 
     public CartAdapter(ArrayList<Order> orders) {
         this.orders = orders;
@@ -36,6 +37,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
             removeBtn = itemView.findViewById(R.id.removeBtn);
             addBtn = itemView.findViewById(R.id.cart_plus);
             minusBtn = itemView.findViewById(R.id.cart_minus);
+            dbModel.load(itemView.getContext());
         }
     }
     @NonNull
@@ -49,9 +51,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
 
     @Override
     public void onBindViewHolder(@NonNull CartVH holder, @SuppressLint("RecyclerView") int position) {
-        holder.cart_item_nameV.setText(orders.get(position).item);
+        holder.cart_item_nameV.setText(dbModel.getFoodByID(orders.get(position).getItem()).getFood_name());
+        holder.imageView.setImageResource(dbModel.getFoodByID(orders.get(position).getItem()).getFood_imagePath());
         holder.item_amount.setText(String.valueOf(orders.get(position).amount));
-        holder.total_price.setText(String.valueOf(orders.get(position).totalPrice));
+        holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
         holder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
                 amt++;
                 orders.get(position).setAmount(amt);
                 orders.get(position).setTotalPrice(orders.get(position).getUnitPrice()*orders.get(position).amount);
-                holder.total_price.setText(String.valueOf(orders.get(position).totalPrice));
+                holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
                 holder.item_amount.setText(String.valueOf(orders.get(position).amount));
                 CartFragment.getTotalCO();
             }
@@ -72,7 +75,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
                     amt--;
                     orders.get(position).setAmount(amt);
                     orders.get(position).setTotalPrice(orders.get(position).getUnitPrice()*orders.get(position).amount);
-                    holder.total_price.setText(String.valueOf(orders.get(position).totalPrice));
+                    holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
                     holder.item_amount.setText(String.valueOf(orders.get(position).amount));
                     CartFragment.getTotalCO();
                 }

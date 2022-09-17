@@ -26,7 +26,6 @@ public class FoodListFragment extends Fragment implements ItemClick{
         view = inflater.inflate(R.layout.fragment_food_list, container, false);
         DBModel dbModel = new DBModel();
         dbModel.load(getContext());
-//        dbModel.addFoodList();
         foodList = dbModel.getRestaurantFoods(FoodActivity.restaurant);
         RecyclerView rv = view.findViewById(R.id.food_rcv);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));

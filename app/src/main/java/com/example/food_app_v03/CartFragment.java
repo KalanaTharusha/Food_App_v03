@@ -75,7 +75,7 @@ public class CartFragment extends Fragment {
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
             co_total = co_total + MainActivity.orderList.get(i).getTotalPrice();
         }
-        totalPrice.setText(String.valueOf(co_total));
+        totalPrice.setText(String.valueOf(String.format("%.2f",co_total)));
     }
 
     public void paymentConfirm() {

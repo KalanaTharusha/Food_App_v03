@@ -139,6 +139,25 @@ public class DBModel {
         return foodList;
     }
 
+    public Food getFoodByID(String foodID) {
+        Food food;
+        String[] selectionArgs = {foodID};
+        Cursor cursor = db.query(FoodTable.TABLENAME, null, FoodTable.Cols.FOOD_ID + " = '" + foodID + "'", null, null, null, null);
+        DBCursor dbCursor = new DBCursor(cursor);
+
+        if (cursor != null && cursor.getCount() > 0) {
+            try {
+                dbCursor.moveToFirst();
+                food = dbCursor.getFoodItem();
+            } finally {
+                cursor.close();
+            }
+        } else food = null;
+
+        return food;
+    }
+
+
     public void addFoodItem(Food food) {
         ContentValues cv = new ContentValues();
         cv.put(FoodTable.Cols.FOOD_ID, food.getFood_id());

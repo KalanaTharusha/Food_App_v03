@@ -23,13 +23,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
     public class FoodVH extends RecyclerView.ViewHolder{
 
         ImageView food_imageV;
-        TextView food_nameV, foodDescV, foodPriceV;
+        TextView food_nameV, foodPriceV;
 
         public FoodVH(@NonNull View itemView, ItemClick itemClick) {
             super(itemView);
             food_imageV = itemView.findViewById(R.id.food_image);
             food_nameV = itemView.findViewById(R.id.food_name);
-            foodDescV = itemView.findViewById(R.id.food_desc);
             foodPriceV = itemView.findViewById(R.id.food_price);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -58,8 +57,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
         String foodName = foodList.get(position).food_name;
         String unitPrice = foodList.get(position).food_price;
         holder.food_nameV.setText(foodName);
-        holder.foodPriceV.setText(unitPrice);
-        holder.foodDescV.setText(foodList.get(position).food_description);
+        holder.foodPriceV.setText("LKR " + unitPrice);
         holder.food_imageV.setImageResource(foodList.get(position).food_imagePath);
     }
 

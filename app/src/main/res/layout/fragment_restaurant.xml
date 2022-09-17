@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RestaurantFragment"
-    android:paddingBottom="50dp">
+    android:paddingBottom="50dp"
+    android:background="@drawable/foodptrn_bg_0p5">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/res_rcv"
