@@ -33,14 +33,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/light_blue"
+                    android:background="@color/light_pink"
                     android:padding="10dp">
 
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/ic_person"
+                        android:src="@drawable/profile_dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -77,11 +77,22 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Order History"
+                android:textSize="20dp"
+                android:gravity="center">
+            </TextView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/history_rcv"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"/>
+                android:layout_weight="2"
+                android:padding="10dp"/>
 
         </LinearLayout>
     </ScrollView>

@@ -13,6 +13,25 @@
         android:orientation="vertical"
         android:paddingTop="20dp">
 
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/shopping_cart"
+            app:tint="@color/bright_pink"
+            android:layout_gravity="center"
+            android:layout_margin="5dp">
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            android:textSize="25dp"
+            android:textColor="@color/bright_pink"
+            android:gravity="center"
+            android:layout_margin="10dp">
+        </TextView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_rcv"
             android:layout_width="match_parent"
