@@ -49,7 +49,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public void onBindViewHolder(@NonNull HistoryVH holder, int position) {
         holder.date.setText(histories.get(position).date);
         holder.orderID.setText(histories.get(position).orderID);
-        holder.itemName.setText(histories.get(position).item);
+        holder.itemName.setText(dbModel.getFoodByID(histories.get(position).item).getFood_name());
         holder.restaurant.setText(dbModel.getRestaurantByID(histories.get(position).restaurant).getR_name());
         holder.unitPrice.setText(histories.get(position).unitPrice);
         holder.amount.setText(histories.get(position).amount);
