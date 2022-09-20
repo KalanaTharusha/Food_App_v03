@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.exit_dialog);
         dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.dialog_background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 
         e_yes = dialog.findViewById(R.id.exit_yes);
         e_no = dialog.findViewById(R.id.exit_no);

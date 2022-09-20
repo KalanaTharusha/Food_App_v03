@@ -35,14 +35,14 @@
         app:layout_constraintTop_toBottomOf="@+id/home_cv" />
 
     <TextView
-        android:id="@+id/home_item_restaurant"
+        android:id="@+id/home_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Restaurant Name"
+        android:text="price"
         android:textAlignment="center"
         android:textSize="12sp"
-        android:textStyle="italic"
+        android:textColor="@color/bright_pink"
         app:layout_constraintEnd_toEndOf="@+id/home_cv"
         app:layout_constraintStart_toStartOf="@+id/home_cv"
         app:layout_constraintTop_toBottomOf="@+id/home_item_name" />

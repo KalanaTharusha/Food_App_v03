@@ -25,13 +25,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
     public class HomeVH extends RecyclerView.ViewHolder {
 
         ImageView homeItemIV;
-        TextView homeItem_name, homeItem_restaurant;
+        TextView homeItem_name, homeItem_price;
 
         public HomeVH(@NonNull View itemView, ItemClick itemClick) {
             super(itemView);
             homeItemIV = itemView.findViewById(R.id.home_imageView);
             homeItem_name = itemView.findViewById(R.id.home_item_name);
-            homeItem_restaurant = itemView.findViewById(R.id.home_item_restaurant);
+            homeItem_price = itemView.findViewById(R.id.home_item_price);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -51,9 +51,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
         View view = layoutInflater.inflate(R.layout.home_menu_item,parent,false);
         HomeVH homeVH = new HomeVH(view, itemClick);
 
-        dbModel = new DBModel();
-        dbModel.load(view.getContext());
-
         return homeVH;
     }
 
@@ -61,7 +58,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
     public void onBindViewHolder(@NonNull HomeVH holder, int position) {
         holder.homeItemIV.setImageResource(homeFoodList.get(position).getFood_imagePath());
         holder.homeItem_name.setText(homeFoodList.get(position).getFood_name());
-        holder.homeItem_restaurant.setText(dbModel.getRestaurantByID(homeFoodList.get(position).getRe_id()).getR_name());
+        holder.homeItem_price.setText("LKR " + homeFoodList.get(position).food_price);
     }
 
     @Override

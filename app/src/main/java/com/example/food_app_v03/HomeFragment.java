@@ -30,6 +30,7 @@ public class HomeFragment extends Fragment implements ItemClick {
     TextView welcomeMsg;
     ImageSlider imageSlider;
     View view;
+    DBModel dbModel;
     int amount = 1;
 
     public HomeFragment() {
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment implements ItemClick {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        DBModel dbModel = new DBModel();
+        dbModel = new DBModel();
         dbModel.load(getContext());
         dbModel.addRestaurantList();
         dbModel.addFoodList();
@@ -89,7 +90,7 @@ public class HomeFragment extends Fragment implements ItemClick {
     }
 
     public void addItemFromHome(int position){
-        TextView d_foodName, d_price, d_amountLabel;
+        TextView d_foodName, d_price, d_restaurant;
         Button d_plus, d_minus, d_addToCart;
         ImageView d_foodItemIV;
 
@@ -105,8 +106,10 @@ public class HomeFragment extends Fragment implements ItemClick {
         d_addToCart = dialog.findViewById(R.id.dialog_add_to_cart_btn);
         d_price = dialog.findViewById(R.id.dialog_food_price);
         d_foodItemIV = dialog.findViewById(R.id.dialog_iv);
+        d_restaurant = dialog.findViewById(R.id.dialog_resName);
 
         d_foodName.setText(randomFoodList.get(position).getFood_name());
+        d_restaurant.setText("by " + dbModel.getRestaurantByID(randomFoodList.get(position).getRe_id()).getR_name());
         d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
         d_foodItemIV.setImageResource(randomFoodList.get(position).food_imagePath);
 
