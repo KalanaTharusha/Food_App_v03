@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,6 +31,11 @@ public class FoodListFragment extends Fragment implements ItemClick{
 
         TextView restaurantName = view.findViewById(R.id.label_res_name);
         restaurantName.setText(dbModel.getRestaurantByID(FoodActivity.restaurant).getR_name());
+
+        ImageView backBtn = view.findViewById(R.id.fList_back);
+        backBtn.setOnClickListener(view1 -> {
+            getActivity().finish();
+        });
 
         foodList = dbModel.getRestaurantFoods(FoodActivity.restaurant);
         RecyclerView rv = view.findViewById(R.id.food_rcv);

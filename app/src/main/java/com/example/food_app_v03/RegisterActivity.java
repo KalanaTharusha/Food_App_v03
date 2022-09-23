@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText name, email, address, phone, password;
-    private Button signUpBtn;
-    private Button cancelBtn;
+    private Button signUpBtn, cancelBtn;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.eTextUPass);
         signUpBtn = findViewById(R.id.signupBtn);
         cancelBtn = findViewById(R.id.cancelBtn);
+        backBtn = findViewById(R.id.reg_back);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
             }
+        });
+
+        backBtn.setOnClickListener(view -> {
+            finish();
         });
 
     }

@@ -30,6 +30,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:scaleType="centerCrop"/>
 
+                <ImageView
+                    android:id="@+id/fItem_back"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:tint="@color/white" />
+
                 <TextView
                     android:id="@+id/res_name2"
                     android:layout_width="wrap_content"
@@ -39,7 +53,8 @@
                     android:textColor="@color/white"
                     android:textSize="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/fItem_back"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView

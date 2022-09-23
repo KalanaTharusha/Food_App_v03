@@ -43,8 +43,8 @@ public class HomeFragment extends Fragment implements ItemClick {
                              Bundle savedInstanceState) {
         dbModel = new DBModel();
         dbModel.load(getContext());
-        dbModel.addRestaurantList();
-        dbModel.addFoodList();
+//        dbModel.addRestaurantList();
+//        dbModel.addFoodList();
         homeFoodList = dbModel.getAllFoods();
         int range = homeFoodList.size();
         randomFoodList = new ArrayList<>();
@@ -73,11 +73,13 @@ public class HomeFragment extends Fragment implements ItemClick {
         imageSlider = view.findViewById(R.id.imageSlider);
 
         ArrayList<SlideModel> slideImages = new ArrayList<>();
-        slideImages.add(new SlideModel(R.drawable.re02, ScaleTypes.CENTER_CROP));
-        slideImages.add(new SlideModel(R.drawable.re03, ScaleTypes.CENTER_CROP));
-        slideImages.add(new SlideModel(R.drawable.re04, ScaleTypes.CENTER_CROP));
-        slideImages.add(new SlideModel(R.drawable.re05, ScaleTypes.CENTER_CROP));
-        slideImages.add(new SlideModel(R.drawable.re06, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s1, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s2, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s3, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s4, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s5, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s6, ScaleTypes.CENTER_CROP));
+        slideImages.add(new SlideModel(R.drawable.s7, ScaleTypes.CENTER_CROP));
 
         imageSlider.setImageList(slideImages, ScaleTypes.CENTER_CROP);
 

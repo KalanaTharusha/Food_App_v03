@@ -17,7 +17,7 @@ public class FoodItemFragment extends Fragment {
     View view;
     TextView foodName, restaurantName, amountLabel, description, plus, minus;
     Button addToCart;
-    ImageView foodItemIV;
+    ImageView foodItemIV, backBtn;
     Food newFood;
     int amount = 1;
 
@@ -34,6 +34,7 @@ public class FoodItemFragment extends Fragment {
         foodItemIV = view.findViewById(R.id.food_image2);
         restaurantName = view.findViewById(R.id.res_name2);
         description = view.findViewById(R.id.f_desc);
+        backBtn = view.findViewById(R.id.fItem_back);
 
         DBModel dbModel = new DBModel();
         dbModel.load(getContext());
@@ -77,6 +78,10 @@ public class FoodItemFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_foodItemFragment_to_foodListFragment);
 
             }
+        });
+
+        backBtn.setOnClickListener(view1 -> {
+            Navigation.findNavController(view).navigate(R.id.action_foodItemFragment_to_foodListFragment);
         });
         return view;
     }
