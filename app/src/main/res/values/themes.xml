@@ -29,5 +29,10 @@
         <item name="cornerSizeTopLeft">20dp</item>
         <item name="cornerSizeBottomRight">20dp</item>
     </style>
+    
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor">@color/bright_pink</item>
+    </style>
 
 </resources>
