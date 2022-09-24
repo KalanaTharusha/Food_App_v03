@@ -18,6 +18,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Food_App_v03);
         setContentView(R.layout.activity_register);
 
         DBModel dbModel = new DBModel();
