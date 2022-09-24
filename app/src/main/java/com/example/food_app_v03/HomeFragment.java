@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class HomeFragment extends Fragment implements ItemClick {
-    ArrayList<Food> homeFoodList;
-    ArrayList<Food> randomFoodList;
-    TextView welcomeMsg;
-    ImageSlider imageSlider;
+    private ArrayList<Food> homeFoodList;
+    private ArrayList<Food> randomFoodList;
+    private TextView welcomeMsg;
+    private ImageSlider imageSlider;
     View view;
-    DBModel dbModel;
-    int amount = 1;
+    private DBModel dbModel;
+    private int amount = 1;
 
     public HomeFragment() {
 
@@ -68,7 +68,7 @@ public class HomeFragment extends Fragment implements ItemClick {
         welcomeMsg = view.findViewById(R.id.welcome_msg);
 
         if (MainActivity.loggedUser != null) {
-            welcomeMsg.setText("Hello " + MainActivity.loggedUser.u_name);
+            welcomeMsg.setText("Hello " + MainActivity.loggedUser.getU_name());
         } else {
             welcomeMsg.setText("Hello");
         }
@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment implements ItemClick {
         addItemFromHome(position);
     }
 
-    public void addItemFromHome(int position){
+    public void addItemFromHome(int position) {
         TextView d_foodName, d_price, d_restaurant;
         Button d_plus, d_minus, d_addToCart;
         ImageView d_foodItemIV;
@@ -114,7 +114,7 @@ public class HomeFragment extends Fragment implements ItemClick {
 
         d_foodName.setText(randomFoodList.get(position).getFood_name());
         d_restaurant.setText("by " + dbModel.getRestaurantByID(randomFoodList.get(position).getRe_id()).getR_name());
-        d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
+        d_price.setText(String.valueOf(String.format("%.2f", Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
         d_foodItemIV.setImageResource(randomFoodList.get(position).food_imagePath);
 
         d_plus.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,7 @@ public class HomeFragment extends Fragment implements ItemClick {
             public void onClick(View view) {
                 amount++;
                 d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
-                d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
+                d_price.setText(String.valueOf(String.format("%.2f", Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
             }
         });
 
@@ -132,7 +132,7 @@ public class HomeFragment extends Fragment implements ItemClick {
                 if (amount > 1) {
                     amount--;
                     d_addToCart.setText("ADD TO CART\n" + String.valueOf(amount));
-                    d_price.setText(String.valueOf(String.format("%.2f",Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
+                    d_price.setText(String.valueOf(String.format("%.2f", Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount)));
                 }
             }
         });
@@ -140,9 +140,9 @@ public class HomeFragment extends Fragment implements ItemClick {
         d_addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.orderList.add(new Order(randomFoodList.get(position).food_id, randomFoodList.get(position).re_id,
-                        Double.parseDouble(randomFoodList.get(position).food_price), amount,
-                        Double.parseDouble(randomFoodList.get(position).food_price) * amount));
+                MainActivity.orderList.add(new Order(randomFoodList.get(position).getFood_id(), randomFoodList.get(position).getRe_id(),
+                        Double.parseDouble(randomFoodList.get(position).getFood_price()), amount,
+                        Double.parseDouble(randomFoodList.get(position).getFood_price()) * amount));
                 amount = 1;
                 Toast.makeText(getContext(), "Item added", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();

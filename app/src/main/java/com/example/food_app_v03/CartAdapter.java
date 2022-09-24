@@ -15,18 +15,18 @@ import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
 
-    ArrayList<Order> orders;
-    DBModel dbModel = new DBModel();
+    private ArrayList<Order> orders;
+    private DBModel dbModel = new DBModel();
 
     public CartAdapter(ArrayList<Order> orders) {
         this.orders = orders;
     }
 
-    public class CartVH extends RecyclerView.ViewHolder{
+    public class CartVH extends RecyclerView.ViewHolder {
 
-        TextView cart_item_nameV, item_amount, total_price;
-        Button removeBtn, addBtn, minusBtn;
-        ImageView imageView;
+        private TextView cart_item_nameV, item_amount, total_price;
+        private Button removeBtn, addBtn, minusBtn;
+        private ImageView imageView;
 
         public CartVH(@NonNull View itemView) {
             super(itemView);
@@ -40,11 +40,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
             dbModel.load(itemView.getContext());
         }
     }
+
     @NonNull
     @Override
     public CartVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.cart_item,parent,false);
+        View view = layoutInflater.inflate(R.layout.cart_item, parent, false);
         CartVH cartVH = new CartVH(view);
         return cartVH;
     }
@@ -53,30 +54,30 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartVH> {
     public void onBindViewHolder(@NonNull CartVH holder, @SuppressLint("RecyclerView") int position) {
         holder.cart_item_nameV.setText(dbModel.getFoodByID(orders.get(position).getItem()).getFood_name());
         holder.imageView.setImageResource(dbModel.getFoodByID(orders.get(position).getItem()).getFood_imagePath());
-        holder.item_amount.setText(String.valueOf(orders.get(position).amount));
-        holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
+        holder.item_amount.setText(String.valueOf(orders.get(position).getAmount()));
+        holder.total_price.setText(String.valueOf(String.format("%.2f", orders.get(position).getTotalPrice())));
         holder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int amt = orders.get(position).amount;
+                int amt = orders.get(position).getAmount();
                 amt++;
                 orders.get(position).setAmount(amt);
-                orders.get(position).setTotalPrice(orders.get(position).getUnitPrice()*orders.get(position).amount);
-                holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
-                holder.item_amount.setText(String.valueOf(orders.get(position).amount));
+                orders.get(position).setTotalPrice(orders.get(position).getUnitPrice() * orders.get(position).getAmount());
+                holder.total_price.setText(String.valueOf(String.format("%.2f", orders.get(position).getTotalPrice())));
+                holder.item_amount.setText(String.valueOf(orders.get(position).getAmount()));
                 CartFragment.getTotalCO();
             }
         });
         holder.minusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (orders.get(position).amount > 1){
-                    int amt = orders.get(position).amount;
+                if (orders.get(position).getAmount() > 1) {
+                    int amt = orders.get(position).getAmount();
                     amt--;
                     orders.get(position).setAmount(amt);
-                    orders.get(position).setTotalPrice(orders.get(position).getUnitPrice()*orders.get(position).amount);
-                    holder.total_price.setText(String.valueOf(String.format("%.2f",orders.get(position).totalPrice)));
-                    holder.item_amount.setText(String.valueOf(orders.get(position).amount));
+                    orders.get(position).setTotalPrice(orders.get(position).getUnitPrice() * orders.get(position).getAmount());
+                    holder.total_price.setText(String.valueOf(String.format("%.2f", orders.get(position).getTotalPrice())));
+                    holder.item_amount.setText(String.valueOf(orders.get(position).getAmount()));
                     CartFragment.getTotalCO();
                 }
             }

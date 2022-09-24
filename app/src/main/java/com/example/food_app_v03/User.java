@@ -1,11 +1,11 @@
 package com.example.food_app_v03;
 
 public class User {
-    String u_name;
-    String u_email;
-    String u_address;
-    String u_phone;
-    String u_password;
+    private String u_name;
+    private String u_email;
+    private String u_address;
+    private String u_phone;
+    private String u_password;
 
     public User(String u_name, String u_email, String u_address, String u_phone, String u_password) {
         this.u_name = u_name;

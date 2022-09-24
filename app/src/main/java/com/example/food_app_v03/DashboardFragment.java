@@ -1,6 +1,5 @@
 package com.example.food_app_v03;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,10 +18,10 @@ import java.util.ArrayList;
 
 public class DashboardFragment extends Fragment {
     View view;
-    User user;
-    TextView name, email;
-    Button logoutBtn;
-    ArrayList<History> historyArrayList;
+    private User user;
+    private TextView name, email;
+    private Button logoutBtn;
+    private ArrayList<History> historyArrayList;
 
     public DashboardFragment() {
         historyArrayList = new ArrayList<>();
@@ -53,8 +52,6 @@ public class DashboardFragment extends Fragment {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
-//                Intent i = new Intent(getContext(), MainActivity.class);
-//                startActivity(i);
                 MainActivity.loggedUser = null;
                 FragmentManager fragmentManager = getParentFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

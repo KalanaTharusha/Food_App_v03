@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 
-public class RestaurantFragment extends Fragment implements ItemClick{
-    ArrayList<Restaurant> restaurants;
+public class RestaurantFragment extends Fragment implements ItemClick {
+    private ArrayList<Restaurant> restaurants;
 
     public RestaurantFragment() {
     }
@@ -30,9 +30,7 @@ public class RestaurantFragment extends Fragment implements ItemClick{
 
         DBModel dbModel = new DBModel();
         dbModel.load(getContext());
-//        dbModel.addRestaurantList();
         restaurants = dbModel.getAllRestaurants();
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_restaurant, container, false);
         RecyclerView rv = view.findViewById(R.id.res_rcv);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -44,7 +42,7 @@ public class RestaurantFragment extends Fragment implements ItemClick{
     @Override
     public void clickedItem(int position) {
         Intent i = new Intent(getContext(), FoodActivity.class);
-        i.putExtra("RES", restaurants.get(position).r_id);
+        i.putExtra("RES", restaurants.get(position).getR_id());
         startActivity(i);
     }
 }

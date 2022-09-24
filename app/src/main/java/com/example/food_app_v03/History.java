@@ -1,7 +1,7 @@
 package com.example.food_app_v03;
 
 public class History {
-    String date, orderID, userID,item, restaurant, unitPrice, amount, totalPrice;
+    private String date, orderID, userID, item, restaurant, unitPrice, amount, totalPrice;
 
     public History(String date, String orderID, String userID, String item, String restaurant, String unitPrice, String amount, String totalPrice) {
         this.date = date;

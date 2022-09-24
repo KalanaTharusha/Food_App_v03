@@ -15,16 +15,16 @@ import android.widget.Toast;
 
 public class FoodItemFragment extends Fragment {
     View view;
-    TextView foodName, restaurantName, amountLabel, description, plus, minus;
-    Button addToCart;
-    ImageView foodItemIV, backBtn;
-    Food newFood;
-    int amount = 1;
+    private TextView foodName, restaurantName, amountLabel, description, plus, minus;
+    private Button addToCart;
+    private ImageView foodItemIV, backBtn;
+    private Food newFood;
+    private int amount = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_food_item, container, false);
         foodName = view.findViewById(R.id.food_name2);
         amountLabel = view.findViewById(R.id.amount2);
@@ -44,14 +44,14 @@ public class FoodItemFragment extends Fragment {
         description.setText(newFood.getFood_description());
         restaurantName.setText(dbModel.getRestaurantByID(newFood.getRe_id()).getR_name());
         foodItemIV.setImageResource(newFood.food_imagePath);
-        addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
+        addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f", Double.parseDouble(newFood.getFood_price()) * amount)));
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 amount++;
                 amountLabel.setText(String.valueOf(amount));
-                addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
+                addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f", Double.parseDouble(newFood.getFood_price()) * amount)));
             }
         });
 
@@ -61,7 +61,7 @@ public class FoodItemFragment extends Fragment {
                 if (amount > 1) {
                     amount--;
                     amountLabel.setText(String.valueOf(amount));
-                    addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f",Double.parseDouble(newFood.getFood_price()) * amount)));
+                    addToCart.setText("ADD TO CART\nLKR " + String.valueOf(String.format("%.2f", Double.parseDouble(newFood.getFood_price()) * amount)));
                 }
             }
         });
@@ -69,7 +69,7 @@ public class FoodItemFragment extends Fragment {
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.orderList.add(new Order(newFood.food_id, newFood.re_id, Double.parseDouble(newFood.food_price), amount, Double.parseDouble(newFood.food_price) * amount));
+                MainActivity.orderList.add(new Order(newFood.getFood_id(), newFood.getRe_id(), Double.parseDouble(newFood.getFood_price()), amount, Double.parseDouble(newFood.getFood_price()) * amount));
 
                 amount = 1;
 

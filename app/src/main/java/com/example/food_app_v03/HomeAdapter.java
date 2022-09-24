@@ -13,9 +13,8 @@ import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
 
-    ArrayList<Food> homeFoodList;
-    ItemClick itemClick;
-    DBModel dbModel;
+    private ArrayList<Food> homeFoodList;
+    private ItemClick itemClick;
 
     public HomeAdapter(ArrayList<Food> homeFoodList, ItemClick itemClick) {
         this.homeFoodList = homeFoodList;
@@ -24,8 +23,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
 
     public class HomeVH extends RecyclerView.ViewHolder {
 
-        ImageView homeItemIV;
-        TextView homeItem_name, homeItem_price;
+        private ImageView homeItemIV;
+        private TextView homeItem_name, homeItem_price;
 
         public HomeVH(@NonNull View itemView, ItemClick itemClick) {
             super(itemView);
@@ -35,8 +34,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(itemClick != null){
-                        if(getAdapterPosition() != RecyclerView.NO_POSITION){
+                    if (itemClick != null) {
+                        if (getAdapterPosition() != RecyclerView.NO_POSITION) {
                             itemClick.clickedItem(getAdapterPosition());
                         }
                     }
@@ -44,11 +43,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
             });
         }
     }
+
     @NonNull
     @Override
     public HomeVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.home_menu_item,parent,false);
+        View view = layoutInflater.inflate(R.layout.home_menu_item, parent, false);
         HomeVH homeVH = new HomeVH(view, itemClick);
 
         return homeVH;
@@ -58,7 +58,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeVH> {
     public void onBindViewHolder(@NonNull HomeVH holder, int position) {
         holder.homeItemIV.setImageResource(homeFoodList.get(position).getFood_imagePath());
         holder.homeItem_name.setText(homeFoodList.get(position).getFood_name());
-        holder.homeItem_price.setText("LKR " + homeFoodList.get(position).food_price);
+        holder.homeItem_price.setText("LKR " + homeFoodList.get(position).getFood_price());
     }
 
     @Override

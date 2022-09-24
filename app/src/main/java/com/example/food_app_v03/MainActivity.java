@@ -25,8 +25,9 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
-    FloatingActionButton fab;
+    private BottomNavigationView bottomNavigationView;
+    private FloatingActionButton fab;
+
     static User loggedUser;
     static ArrayList<Order> orderList = new ArrayList<>();
 
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBModel dbModel = new DBModel();
+        dbModel.load(getApplicationContext());
+        dbModel.addRestaurantList();
+        dbModel.addFoodList();
 
         bottomNavigationView = findViewById(R.id.bottomNav);
         fab = findViewById(R.id.home_button);
@@ -89,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.mainFragCont, fragment).commit();
     }
 
-    public void exitConfirm(){
+    public void exitConfirm() {
         Button e_yes, e_no;
 
         Dialog dialog = new Dialog(this);

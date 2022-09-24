@@ -24,8 +24,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class CartFragment extends Fragment {
-    ArrayList<Order> orders;
-    Button checkout;
+    private ArrayList<Order> orders;
+    private Button checkout;
     static TextView totalPrice;
 
     public CartFragment() {
@@ -36,7 +36,6 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         orders = MainActivity.orderList;
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         RecyclerView rv = view.findViewById(R.id.cart_rcv);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -56,12 +55,12 @@ public class CartFragment extends Fragment {
                 dbModel.load(view.getContext());
                 if (MainActivity.loggedUser != null) {
                     if (!MainActivity.orderList.isEmpty()) {
-                        dbModel.addOrderList(MainActivity.loggedUser.u_email);
+                        dbModel.addOrderList(MainActivity.loggedUser.getU_email());
                         paymentConfirm();
                         MainActivity.orderList.removeAll(MainActivity.orderList);
                         getTotalCO();
                         adapter.notifyDataSetChanged();
-                    }else {
+                    } else {
                         Toast.makeText(getContext(), "No items", Toast.LENGTH_SHORT).show();
                     }
                 } else {
@@ -84,7 +83,7 @@ public class CartFragment extends Fragment {
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
             co_total = co_total + MainActivity.orderList.get(i).getTotalPrice();
         }
-        totalPrice.setText(String.valueOf(String.format("%.2f",co_total)));
+        totalPrice.setText(String.valueOf(String.format("%.2f", co_total)));
     }
 
     public void paymentConfirm() {

@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryVH> {
 
-    ArrayList<History> histories;
-    DBModel dbModel = new DBModel();
+    private ArrayList<History> histories;
+    private DBModel dbModel = new DBModel();
 
     public HistoryAdapter(ArrayList<History> histories) {
         this.histories = histories;
@@ -40,20 +40,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     @Override
     public HistoryVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.history_item,parent,false);
+        View view = layoutInflater.inflate(R.layout.history_item, parent, false);
         HistoryVH historyVH = new HistoryVH(view);
         return historyVH;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HistoryVH holder, int position) {
-        holder.date.setText(histories.get(position).date);
-        holder.orderID.setText(histories.get(position).orderID);
-        holder.itemName.setText(dbModel.getFoodByID(histories.get(position).item).getFood_name());
-        holder.restaurant.setText(dbModel.getRestaurantByID(histories.get(position).restaurant).getR_name());
-        holder.unitPrice.setText(histories.get(position).unitPrice);
-        holder.amount.setText(histories.get(position).amount);
-        holder.totalPrice.setText(histories.get(position).totalPrice);
+        holder.date.setText(histories.get(position).getDate());
+        holder.orderID.setText(histories.get(position).getOrderID());
+        holder.itemName.setText(dbModel.getFoodByID(histories.get(position).getItem()).getFood_name());
+        holder.restaurant.setText(dbModel.getRestaurantByID(histories.get(position).getRestaurant()).getR_name());
+        holder.unitPrice.setText(String.format("%.2f", Double.parseDouble(histories.get(position).getUnitPrice())));
+        holder.amount.setText(histories.get(position).getAmount());
+        holder.totalPrice.setText(String.format("%.2f", Double.parseDouble(histories.get(position).getTotalPrice())));
     }
 
     @Override

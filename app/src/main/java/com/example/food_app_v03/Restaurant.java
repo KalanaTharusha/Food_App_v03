@@ -1,10 +1,10 @@
 package com.example.food_app_v03;
 
 public class Restaurant {
-    String r_id;
-    String r_name;
-    int r_imagePath;
-    String address;
+    private String r_id;
+    private String r_name;
+    private int r_imagePath;
+    private String address;
 
     public Restaurant(String r_id, String r_name, int imagePath, String address) {
         this.r_id = r_id;

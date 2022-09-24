@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Food implements Parcelable {
-    String food_id;
-    String food_name;
-    String food_price;
-    String food_description;
-    String re_id;
+    private String food_id;
+    private String food_name;
+    private String food_price;
+    private String food_description;
+    private String re_id;
     int food_imagePath;
 
-    public Food(String food_id, String food_name,String food_price, String food_description, String re_id, int food_imagePath) {
+    public Food(String food_id, String food_name, String food_price, String food_description, String re_id, int food_imagePath) {
         this.food_id = food_id;
         this.food_name = food_name;
         this.food_price = food_price;

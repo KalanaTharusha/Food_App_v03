@@ -1,11 +1,11 @@
 package com.example.food_app_v03;
 
 public class Order {
-    String item;
-    String restaurant;
-    double unitPrice;
-    int amount;
-    double totalPrice;
+    private String item;
+    private String restaurant;
+    private double unitPrice;
+    private int amount;
+    private double totalPrice;
 
     public Order(String item, String restaurant, double unitPrice,int amount, double totalPrice) {
         this.item = item;

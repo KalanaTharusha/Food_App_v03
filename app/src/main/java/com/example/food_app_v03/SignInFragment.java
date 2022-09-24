@@ -24,7 +24,7 @@ import com.example.food_app_v03.databinding.FragmentSignInBinding;
 
 public class SignInFragment extends Fragment {
     View view;
-    User newUser;
+    private User newUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

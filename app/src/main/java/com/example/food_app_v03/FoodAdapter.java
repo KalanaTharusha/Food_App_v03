@@ -12,18 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
-    ArrayList<Food> foodList;
-    ItemClick itemClick;
+    private ArrayList<Food> foodList;
+    private ItemClick itemClick;
 
     public FoodAdapter(ArrayList<Food> foodList, ItemClick itemClick) {
         this.foodList = foodList;
         this.itemClick = itemClick;
     }
 
-    public class FoodVH extends RecyclerView.ViewHolder{
+    public class FoodVH extends RecyclerView.ViewHolder {
 
-        ImageView food_imageV;
-        TextView food_nameV, foodPriceV;
+        private ImageView food_imageV;
+        private TextView food_nameV, foodPriceV;
 
         public FoodVH(@NonNull View itemView, ItemClick itemClick) {
             super(itemView);
@@ -33,8 +33,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(itemClick != null){
-                        if(getAdapterPosition() != RecyclerView.NO_POSITION){
+                    if (itemClick != null) {
+                        if (getAdapterPosition() != RecyclerView.NO_POSITION) {
                             itemClick.clickedItem(getAdapterPosition());
                         }
                     }
@@ -47,15 +47,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
     @Override
     public FoodVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.food_item,parent,false);
+        View view = layoutInflater.inflate(R.layout.food_item, parent, false);
         FoodVH foodVH = new FoodVH(view, itemClick);
         return foodVH;
     }
 
     @Override
     public void onBindViewHolder(@NonNull FoodVH holder, int position) {
-        String foodName = foodList.get(position).food_name;
-        String unitPrice = foodList.get(position).food_price;
+        String foodName = foodList.get(position).getFood_name();
+        String unitPrice = foodList.get(position).getFood_price();
         holder.food_nameV.setText(foodName);
         holder.foodPriceV.setText("LKR " + unitPrice);
         holder.food_imageV.setImageResource(foodList.get(position).food_imagePath);

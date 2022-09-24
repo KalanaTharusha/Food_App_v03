@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestaurantVH> {
-    ArrayList<Restaurant> restaurantList;
-    ItemClick itemClick;
+    private ArrayList<Restaurant> restaurantList;
+    private ItemClick itemClick;
 
     public RestaurantAdapter(ArrayList<Restaurant> restaurantList, ItemClick itemClick) {
         this.restaurantList = restaurantList;

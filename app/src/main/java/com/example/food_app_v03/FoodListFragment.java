@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class FoodListFragment extends Fragment implements ItemClick{
+public class FoodListFragment extends Fragment implements ItemClick {
 
     View view;
     static ArrayList<Food> foodList;
@@ -24,7 +24,7 @@ public class FoodListFragment extends Fragment implements ItemClick{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_food_list, container, false);
         DBModel dbModel = new DBModel();
         dbModel.load(getContext());
