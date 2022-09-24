@@ -49,8 +49,11 @@ public class HomeFragment extends Fragment implements ItemClick {
         int range = homeFoodList.size();
         randomFoodList = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
-            randomFoodList.add(homeFoodList.get(getRandomValue(range)));
+        for (int i = 0; randomFoodList.size() < 10; i++) {
+            int idx = getRandomValue(19);
+            if (!randomFoodList.contains(homeFoodList.get(idx))) {
+                randomFoodList.add(homeFoodList.get(idx));
+            }
         }
 
         view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -100,7 +103,6 @@ public class HomeFragment extends Fragment implements ItemClick {
         dialog.setContentView(R.layout.add2cart_dialog);
         dialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.dialog_animation;
 
         d_foodName = dialog.findViewById(R.id.dialog_name);
         d_plus = dialog.findViewById(R.id.dialog_add_btn);
