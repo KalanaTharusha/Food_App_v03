@@ -18,7 +18,7 @@
 
 # How to use
 
-- First, you launch the app will redirect you to the home page.
+- When the app launches it will redirect you to the home page.
 
 - This will show you some random best deals on food items from different restaurants. You can scroll down this list, pick any items you are interested in, and add them to your cart. When you click any item on this list will pop up a dialogue box.
 
