@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="readme_resources/app_icon.png" height="150px" width="150px"> <br><br>
+    <img src="readme_resources/app_icon.png" height="150px" width="150px"> <br>
     <img src="readme_resources/title.png" width="300px">
 </p>
 <br>
